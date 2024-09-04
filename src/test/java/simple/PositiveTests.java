@@ -6,10 +6,13 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("simple")
 public class PositiveTests extends TestBase{
+
+    private final String name = "Anatoliy";
 
     @Test
     void test1(){
@@ -20,11 +23,30 @@ public class PositiveTests extends TestBase{
     @Tag("remote")
     void test2(){
         assertTrue(true);
-        open("/text-box");
-        $("#userName").setValue("Anatoliy");
-        $("#userEmail").setValue("t0l4ik@mail.ru");
-        $("#currentAddress").setValue("saina 10");
-        $("#permanentAddress").setValue("Moskva 10");
+
+        step("Open form", () -> {
+            open("/text-box");
+
+        });
+        step("Set name {name}", () -> {
+            $("#userName").setValue(name);
+
+        });
+
+        step("Set email", () -> {
+            $("#userEmail").setValue("t0l4ik@mail.ru");
+        });
+
+        step("set adress", () -> {
+            $("#currentAddress").setValue("saina 10");
+
+        });
+
+        step("set adress 2", () -> {
+            $("#permanentAddress").setValue("saina 10");
+
+        });
+
         //$(".btn.btn-primary").click();
         //$("#output").shouldBe(Condition.appear);
 
