@@ -17,6 +17,7 @@ public class PositiveTests extends TestBase{
     }
 
     @Test
+    @Tag("remote")
     void test2(){
         assertTrue(true);
         open("/text-box");
