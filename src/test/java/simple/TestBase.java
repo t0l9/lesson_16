@@ -3,14 +3,11 @@ package simple;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -21,6 +18,14 @@ public class TestBase {
     void addListener(){
         //Добавляем лисенер чтобы показывалась в аллюре шаги
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
+    @AfterEach
+    void addAttachments(){
+        Attach.screenshotAs("last screnshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        //Attach.video();
     }
 
     @BeforeAll
