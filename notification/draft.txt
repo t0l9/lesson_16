@@ -1,0 +1,17 @@
+Create a bot
+Get the bot's API token from @BotFather
+Add your bot to the chat you'll be sending messages to
+Get the ID of the chat
+a. Fetch bot updates and look for the chat id:
+curl https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates | -r '.result[].message.chat.id'
+b. OR, run bot.rb and @-mention your bot in the chat. The chat id will appear in bot.rb's output.
+The bot may need temporary message access: @BotFather > Bot Settings > Group Privacy > Turn off
+Send a message using the HTTP API: https://core.telegram.org/bots/api#sendmessage
+
+
+
+//ссылка для отправки с консоли
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-4593788701", "text": "This is a test from allure", "disable_notification": true}' https://api.telegram.org/bot7423234261:AAEsh9P__Y6mtbtoIcDkEn3vpUVXBiroOk0/sendMessage
+
+Run jar with notification
+java "-DconfigFile=notification/config.json" -jar notification/allure-notifications-4.7.0.jar

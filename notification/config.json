@@ -1,0 +1,19 @@
+{
+  "base": {
+    "logo": "",
+    "project": "My test",
+    "environment": "qu.quru",
+    "comment": "Some comment",
+    "reportLink": "",
+    "language": "ru",
+    "allureFolder": "build/",
+    "enableChart": true,
+    "enableSuitesPublishing": true
+  },
+  "telegram": {
+    "token": "7423234261:AAEsh9P__Y6mtbtoIcDkEn3vpUVXBiroOk0",
+    "chat": "-4593788701",
+    "replyTo": "",
+    "templatePath": "/templates/telegram.ftl"
+  }
+}

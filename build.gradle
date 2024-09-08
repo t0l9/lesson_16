@@ -35,6 +35,10 @@ dependencies {
     )
 }
 
+tasks.withType(Test){
+    systemProperties((System.getProperties()))
+}
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
     sourceCompatibility = '17'
@@ -59,3 +63,14 @@ task remote_test(type: Test){
     }
 }
 
+task one_property_test(type: Test){
+    useJUnitPlatform{
+        includeTags("one_property")
+    }
+}
+
+task hello_test(type: Test){
+    useJUnitPlatform{
+        includeTags("hello_test")
+    }
+}
